@@ -17,8 +17,15 @@ h2 {
 
   .top {
     background: linear-gradient(146.62deg, #00A3AE 21.58%, rgba(0, 163, 174, 0) 152.21%);
-    height: 360px;
+    height: 260px;
     color: white;
+    .top-text {
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      width: 200px;
+    }
   }
 
   .bottom {
@@ -36,7 +43,7 @@ h2 {
     margin: 0 auto;
     width: 141px;
     left: 0;
-    top: 286px;
+    top: 222px;
     right: 0;
     a {
       color: black;

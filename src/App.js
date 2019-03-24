@@ -19,15 +19,17 @@ class Home extends Component {
     return (
       <div className="home">
         <div className="top">
-          <h1 style={{ paddingTop: 57, marginTop: 0 }}>
-            Welcome to Pillar
-          </h1>
-          <h4 style={{ fontWeight: 'normal' }}>
-            We are here to support you in supporing your friends.
-          </h4>
-          <h4 style={{ fontWeight: 'normal' }}>
-            How can we help today?
-          </h4>
+          <div className="top-text">
+            <h1 style={{ paddingTop: 57, marginTop: 0 }}>
+              Welcome to Pillar
+            </h1>
+            <h4 style={{ fontWeight: 'normal' }}>
+              We are here to support you in supporing your friends.
+            </h4>
+            <h4 style={{ fontWeight: 'normal' }}>
+              How can we help today?
+            </h4>
+          </div>
         </div>
         <div className="bottom" />
         <div className="landing-cards">
@@ -35,7 +37,8 @@ class Home extends Component {
             <Link to="/my_people">
               <Card className="card">
                 <CardContent>
-                  My People
+                  <Icon className='fas fa-users' style={{ color: '#00A3AE', width: 42, height: 33, fontSize: 33 }} />
+                  <div style={{ textAlign: 'center', fontSize: 12 }}>My People</div>
                 </CardContent>
               </Card>
             </Link>
@@ -44,7 +47,8 @@ class Home extends Component {
             <Link to="/communication_guide">
               <Card className="card">
                 <CardContent>
-                  Communication Guide
+                  <Icon className='fas fa-comments' style={{ color: '#00A3AE', width: 42, height: 33, fontSize: 33 }} />
+                  <div style={{ textAlign: 'center', fontSize: 12 }}>Communication Guide</div>
                 </CardContent>
               </Card>
             </Link>
@@ -53,7 +57,8 @@ class Home extends Component {
             <Link to="/knowledge_and_resources">
               <Card className="card">
                 <CardContent>
-                  Knowledge and Resources
+                  <Icon className='fas fa-book-reader' style={{ color: '#00A3AE', width: 42, height: 33, fontSize: 33 }} />
+                  <div style={{ textAlign: 'center', fontSize: 12 }}>Knowledge & Resources</div>
                 </CardContent>
               </Card>
             </Link>

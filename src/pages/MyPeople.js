@@ -37,6 +37,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     height: 300,
+    width: 300,
     outline: 'none',
   },
   form: {
@@ -164,7 +165,7 @@ class MyPeople extends Component {
                   {contact.reminder ?
                     <span style={{ marginTop: 0 }}>
                       <Icon className='far fa-bell' style={{ color: '#00A3AE', marginLeft: 15 }} />
-                      <span style={{ marginLeft: 15}}>{`Every ${contact.reminder.repeat}, at ${contact.reminder.time}`}</span>
+                      <span style={{ marginLeft: 15, fontSize: 12, color: 'rgba(0, 0, 0, 0.5)' }}>{`Every ${contact.reminder.repeat}, at ${contact.reminder.time}`}</span>
                     </span> : undefined}
                 </div>
               )
@@ -206,8 +207,9 @@ class MyPeople extends Component {
                 text,
                 time: moment()
               }
-              const newNotes = this.state.contact.notes.concat(newNote)
-              const contact = Object.assign({}, this.state.contact, { notes: newNotes })
+              const notes = this.state.contact.notes
+              notes.unshift(newNote)
+              const contact = Object.assign({}, this.state.contact, { notes })
 
               this.setState({ contact, page: 'person' })}}
             />

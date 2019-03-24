@@ -116,7 +116,20 @@ class MyPeople extends Component {
     name: '',
     contacts: contacts,
     page: 'people',
-    contact: undefined
+    contact: undefined,
+    snackOpen: false
+  };
+
+  handleSnack = () => {
+    this.setState({ snackOpen: true });
+  };
+
+  handleSnackClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    this.setState({ snackOpen: false });
   };
 
   handleChange = name => event => {
@@ -135,7 +148,8 @@ class MyPeople extends Component {
     currentId += 1
     const newContacts = contacts.concat({
       id: currentId,
-      name: this.state.name
+      name: this.state.name,
+      notes: []
     })
     this.setState({
       contacts: newContacts
@@ -182,7 +196,7 @@ class MyPeople extends Component {
               rightIcon="fa-share"
               rightAction={() => {}}
             />
-            <Person contact={this.state.contact} />
+            <Person contact={this.state.contact} snackOpen={this.state.open} />
             <div style={{ position: 'absolute', bottom: 13, left: '13%' }}>
               <Button color="primary" style={{ marginRight: 20 }} onClick={() => this.setState({ page: 'follow_up' })}>
                 SET FOLLOW UP
@@ -224,7 +238,7 @@ class MyPeople extends Component {
               onBack={() => this.setState({ page: 'person' })}
               title="Set Text Reminder"
             />
-            <FollowUp save={(reminder) => {
+            <FollowUp handleSnack={() => this.handleSnack()} save={(reminder) => {
               const contact = Object.assign({}, this.state.contact, { reminder })
               this.setState({ contact, page: 'person' })
             }}/>

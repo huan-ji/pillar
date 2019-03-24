@@ -5,13 +5,23 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 class NewNote extends Component {
-  constructor(props) {
-    super(props)
+  state = {
+    open: false,
+    text: ''
+  };
 
-    this.state = {
-      text: ''
+  handleClick = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
     }
-  }
+
+    this.setState({ open: false });
+  };
+
   render() {
     return (
       <div className="new-note">
@@ -29,8 +39,8 @@ class NewNote extends Component {
             shrink: true,
           }}
         />
-        <div style={{ position: 'absolute', bottom: 13, right: '13' }}>
-          <Button variant="contained" color="primary" onClick={() => this.props.save(this.state.text)}>
+        <div style={{ position: 'absolute', bottom: 13, right: 13 }}>
+          <Button variant="contained" color="primary" onClick={() => {this.handleClick(); this.props.save(this.state.text)}}>
             SAVE NOTE
           </Button>
         </div>

@@ -8,12 +8,14 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import InputLabel from '@material-ui/core/InputLabel';
 import axios from 'axios'
+import Snackbar from '@material-ui/core/Snackbar';
 
 class FollowUp extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
+      open: false,
       time: undefined,
       repeat: undefined,
       phone: undefined,
@@ -21,19 +23,33 @@ class FollowUp extends Component {
     }
   }
 
+  handleClick = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    this.setState({ open: false });
+  };
+
   setReminder() {
+    this.props.handleSnack()
     const reminder = {
       time: this.state.time,
       repeat: this.state.repeat
     }
-    this.props.save(reminder)
+
+    const _this = this;
 
     axios.post('/text', {
       number: this.state.phone,
       text: this.state.message
     })
     .then(function (response) {
-      console.log(response);
+      _this.props.save(reminder)
     })
     .catch(function (error) {
       console.log(error);
@@ -43,6 +59,19 @@ class FollowUp extends Component {
   render() {
     return (
       <div className="follow-up" noValidate>
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+          open={this.state.open}
+          autoHideDuration={4000}
+          onClose={this.handleClose}
+          ContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+          message={<span id="message-id">Follow-up reminder succesfully scheduled.</span>}
+        />
         <TextField
           id="time"
           label="Time"

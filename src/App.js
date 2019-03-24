@@ -17,37 +17,46 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <h1>
-          Welcome to Pillar
-        </h1>
-        <h4>
-          We are here to support you in supporing your friends.
-        </h4>
-        <h4>
-          How can we help today?
-        </h4>
+        <div className="top">
+          <h1 style={{ paddingTop: 57, marginTop: 0 }}>
+            Welcome to Pillar
+          </h1>
+          <h4 style={{ fontWeight: 'normal' }}>
+            We are here to support you in supporing your friends.
+          </h4>
+          <h4 style={{ fontWeight: 'normal' }}>
+            How can we help today?
+          </h4>
+        </div>
+        <div className="bottom" />
         <div className="landing-cards">
-          <Link to="/my_people">
-            <Card>
-              <CardContent>
-                My People
-              </CardContent>
-            </Card>
-          </Link>
-          <Link to="/communication_guide">
-            <Card>
-              <CardContent>
-                Communication Guide
-              </CardContent>
-            </Card>
-          </Link>
-          <Link to="/knowledge_and_resources">
-            <Card>
-              <CardContent>
-                Knowledge and Resources
-              </CardContent>
-            </Card>
-          </Link>
+          <div className="card">
+            <Link to="/my_people">
+              <Card className="card">
+                <CardContent>
+                  My People
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+          <div className="card">
+            <Link to="/communication_guide">
+              <Card className="card">
+                <CardContent>
+                  Communication Guide
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+          <div className="card">
+            <Link to="/knowledge_and_resources">
+              <Card className="card">
+                <CardContent>
+                  Knowledge and Resources
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
         </div>
       </div>
     )

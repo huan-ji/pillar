@@ -1,5 +1,31 @@
 .home {
+  background-color: #EEEEEE;
+  text-align: center;
+  position: relative;
+
+  .top {
+    background: linear-gradient(146.62deg, #00A3AE 21.58%, rgba(0, 163, 174, 0) 152.21%);
+    height: 360px;
+    color: white;
+  }
+
+  .bottom {
+    background-color: #EEEEEE;
+    height: 100vh;
+  }
+  .card {
+    width: 141px;
+    height: 91px;
+    margin-bottom: 15px;
+  }
+
   .landing-cards {
+    position: absolute;
+    margin: 0 auto;
+    width: 141px;
+    left: 0;
+    top: 286px;
+    right: 0;
     a {
       color: black;
       text-decoration: none;

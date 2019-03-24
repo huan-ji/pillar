@@ -1,3 +1,15 @@
+h1 {
+  font-size: 24px;
+  font-weight: medium;
+  line-height: 120%;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: medium;
+  line-height: 110%;
+}
+
 .home {
   background-color: #EEEEEE;
   text-align: center;
@@ -29,6 +41,19 @@
     a {
       color: black;
       text-decoration: none;
+    }
+  }
+}
+
+.communication-guide {
+  .cards {
+    display: flex;
+    overflow: auto;
+    white-space: nowrap;
+    .card {
+      white-space: normal;
+      margin: 20px;
+      width: 285px !important;
     }
   }
 }

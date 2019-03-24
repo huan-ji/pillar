@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import TextField from '@material-ui/core/TextField';
-import PhoneInput from '../components/PhoneInput';
+import PhoneInput from '../components/PhoneInput.js';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';

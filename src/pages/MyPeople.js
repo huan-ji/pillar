@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import moment from 'moment'
 
 import Icon from '@material-ui/core/Icon';
-import Person from './Person'
-import FollowUp from './FollowUp'
-import NewNote from './NewNote'
-import Navbar from '../components/Navbar'
+import Person from './Person.js'
+import FollowUp from './FollowUp.js'
+import NewNote from './NewNote.js'
+import Navbar from '../components/Navbar.js'
 import Modal from '@material-ui/core/Modal';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';

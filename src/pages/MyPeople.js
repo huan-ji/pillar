@@ -61,11 +61,13 @@ const styles = theme => ({
 const contacts = [
   {
     id: 1,
-    name: 'Angela'
+    name: 'Angela',
+    notes: []
   },
   {
     id: 2,
-    name: 'Aaron'
+    name: 'Aaron',
+    notes: []
   },
   {
     id: 3,
@@ -73,11 +75,13 @@ const contacts = [
     reminder: {
       time: '12:00pm',
       repeat: '2 weeks'
-    }
+    },
+    notes: []
   },
   {
     id: 4,
     name: 'Jeremy',
+    notes: []
   },
   {
     id: 5,

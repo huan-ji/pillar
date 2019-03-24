@@ -4,6 +4,10 @@ class Person extends Component {
   render() {
     const { contact } = this.props
 
+    if (!contact.notes) {
+      return <div>No notes</div>
+    }
+
     return (
       <div className="person">
         <div style={{ marginLeft: 44, borderLeft: '1px solid black'}}>

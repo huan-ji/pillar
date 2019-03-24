@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import moment from 'moment'
 
+import Icon from '@material-ui/core/Icon';
 import Person from './Person'
+import FollowUp from './FollowUp'
 import NewNote from './NewNote'
 import Navbar from '../components/Navbar'
 import Modal from '@material-ui/core/Modal';
@@ -68,6 +70,10 @@ const contacts = [
   {
     id: 3,
     name: 'Charles Lee',
+    reminder: {
+      time: '12:00pm',
+      repeat: '2 weeks'
+    }
   },
   {
     id: 4,
@@ -89,7 +95,11 @@ const contacts = [
         time: moment('11/11/2019'),
         text: 'OMG Mary broke my window!! I’m seriously thinking about having an intervention ....'
       }
-    ]
+    ],
+    reminder: {
+      time: '3:00pm',
+      repeat: '3 days'
+    }
   }
 ]
 
@@ -144,9 +154,14 @@ class MyPeople extends Component {
             />
             {this.state.contacts.map((contact) => {
               return (
-                <div style={{ display: 'flex', margin: 16 }} onClick={() => this.setState({ page: 'person', contact: contact })}>
+                <div style={{ display: 'flex', margin: 16, cursor: 'pointer' }} onClick={() => this.setState({ page: 'person', contact: contact })}>
                   <Avatar style={{ marginRight: 24, backgroundColor: '#00A3AE' }}>{contact.name[0].toUpperCase()}</Avatar>
                   <span style={{ paddingTop: 10}}>{contact.name}</span>
+                  {contact.reminder ?
+                    <span style={{ marginTop: 0 }}>
+                      <Icon className='far fa-bell' style={{ color: '#00A3AE', marginLeft: 15 }} />
+                      <span style={{ marginLeft: 15}}>{`Every ${contact.reminder.repeat}, at ${contact.reminder.time}`}</span>
+                    </span> : undefined}
                 </div>
               )
             })}
@@ -190,8 +205,23 @@ class MyPeople extends Component {
               const newNotes = this.state.contact.notes.concat(newNote)
               const contact = Object.assign({}, this.state.contact, { notes: newNotes })
 
-              this.setState({ contact })}}
+              this.setState({ contact, page: 'person' })}}
             />
+          </div>
+          : undefined
+        }
+
+        {
+          this.state.page === 'follow_up' ?
+          <div>
+            <Navbar
+              onBack={() => this.setState({ page: 'person' })}
+              title="Set Text Reminder"
+            />
+            <FollowUp save={(reminder) => {
+              const contact = Object.assign({}, this.state.contact, { reminder })
+              this.setState({ contact, page: 'person' })
+            }}/>
           </div>
           : undefined
         }

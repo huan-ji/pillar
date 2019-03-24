@@ -177,9 +177,9 @@ class MyPeople extends Component {
                   <Avatar style={{ marginRight: 24, backgroundColor: '#00A3AE' }}>{contact.name[0].toUpperCase()}</Avatar>
                   <span style={{ paddingTop: 10}}>{contact.name}</span>
                   {contact.reminder ?
-                    <span style={{ marginTop: 0 }}>
-                      <Icon className='far fa-bell' style={{ color: '#00A3AE', marginLeft: 15 }} />
-                      <span style={{ marginLeft: 15, fontSize: 12, color: 'rgba(0, 0, 0, 0.5)' }}>{`Every ${contact.reminder.repeat}, at ${contact.reminder.time}`}</span>
+                    <span style={{ marginTop: 6 }}>
+                      <Icon className='far fa-bell' style={{ fontSize: 20, color: '#00A3AE', marginLeft: 10 }} />
+                      <span style={{ marginLeft: 10, fontSize: 12, color: 'rgba(0, 0, 0, 0.5)' }}>{`Every ${contact.reminder.repeat}, at ${contact.reminder.time}`}</span>
                     </span> : undefined}
                 </div>
               )

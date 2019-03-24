@@ -196,7 +196,7 @@ class MyPeople extends Component {
               rightIcon="fa-share"
               rightAction={() => {}}
             />
-            <Person contact={this.state.contact} snackOpen={this.state.open} />
+            <Person contact={this.state.contact} snackOpen={this.state.snackOpen} handleSnackClose={() => this.handleSnackClose()}/>
             <div style={{ position: 'absolute', bottom: 13, left: '13%' }}>
               <Button color="primary" style={{ marginRight: 20 }} onClick={() => this.setState({ page: 'follow_up' })}>
                 SET FOLLOW UP

@@ -33,13 +33,13 @@ class Person extends Component {
             vertical: 'bottom',
             horizontal: 'left',
           }}
-          open={this.props.snackopen}
+          open={this.props.snackOpen}
           autoHideDuration={4000}
-          onClose={this.handleClose}
+          onClose={this.props.handleSnackClose}
           ContentProps={{
             'aria-describedby': 'message-id',
           }}
-          message={<span id="message-id">Follow-up reminder succesfully scheduled.</span>}
+          message={<span id="message-id">Follow-up succesfully scheduled.</span>}
         />
         <div style={{ marginLeft: 44, borderLeft: '1px solid black'}}>
           <div style={{ marginLeft: 28, marginTop: 40, marginBottom: 30, position: 'relative' }}>

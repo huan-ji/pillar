@@ -46,10 +46,10 @@ class Person extends Component {
             <div className="circle" />
             <div style={{ fontWeight: 500, fontSize: 16 }}>Today</div>
           </div>
-          <div style={{ height: 350, overflowY: 'scroll', whiteSpace: 'nowrap' }}>
+          <div style={{ height: 350, overflowY: 'scroll', overflowX: 'initial', whiteSpace: 'nowrap' }}>
             {contact.notes.map((note) => {
               return (
-                <div style={{ marginLeft: 28, marginBottom: 30, position: 'relative'}}>
+                <div style={{ marginLeft: 28, marginBottom: 30, position: 'relative', overflow: 'initial', whiteSpace: 'normal' }}>
                   <div className="circle" />
                   <div style={{ fontWeight: 500, fontSize: 16 , marginBottom: 10 }}>{note.time.format('MMMM Do YYYY')}</div>
                   <div style={{ fontWeight: 300, fontSize: 14 }}>{note.text}</div>

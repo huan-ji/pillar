@@ -7,6 +7,7 @@ import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import Icon from '@material-ui/core/Icon';
 
 import MyPeople from './pages/MyPeople'
 import CommunicationGuide from './pages/CommunicationGuide'

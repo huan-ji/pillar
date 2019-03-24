@@ -4,7 +4,7 @@ const accountSid = 'AC67dd70f16379fbc2e1e26f19a05d5a14';
 const authToken = '4bb1bd19fae1711ee737c9b3897f7f5b';
 const client = require('twilio')(accountSid, authToken);
 const app = express();
-const port = 5000;
+app.set("port", process.env.PORT || 5000);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -20,4 +20,8 @@ app.post('/text', (req, res) => {
   );
 });
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
+app.listen(app.get('port'), () => console.log(`Listening on port ${port}`));
